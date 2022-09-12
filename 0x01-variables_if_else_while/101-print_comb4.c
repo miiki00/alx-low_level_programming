@@ -1,6 +1,9 @@
 #include <stdio.h>
+
 /**
- * main - 
+ * main - prints possible combination of 3 digit numbers.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
@@ -10,12 +13,12 @@ int main(void)
 
 	while (fir < 56)
 	{
-			sec = fir + 1;
-		
+		sec = fir + 1;
+
 		while (sec < 57)
 		{
 			thi = sec + 1;
-			 while (thi <= 57)
+			while (thi <= 57)
 			{
 				putchar(fir);
 				putchar(sec);
@@ -26,10 +29,10 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
-				
+
 				thi++;
 			}
-			
+
 			sec++;
 		}
 
