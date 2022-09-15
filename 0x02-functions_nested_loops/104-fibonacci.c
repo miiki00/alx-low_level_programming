@@ -16,7 +16,7 @@ int main(void)
 	{
 		if (i == 3)
 		{
-			printf("%d, %d, %d, ", (j - 2), (j - 1), j);
+			printf("%lu, %lu, %lu, ", (j - 2), (j - 1), j);
 		}
 		else
 		{
