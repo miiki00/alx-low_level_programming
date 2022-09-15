@@ -26,7 +26,7 @@ int main(void)
 			if (k < j)
 				k = k * -1;
 			if (i == 50)
-				printf("%ld", l);
+				printf("%ld\n", l);
 			else
 				printf("%ld, ", l);
 			k = j;
