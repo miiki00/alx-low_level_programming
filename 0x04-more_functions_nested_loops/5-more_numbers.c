@@ -15,9 +15,9 @@ void more_numbers(void)
 		{
 			for (c_three = 0; c_three < 10; c_three++)
 			{
-				if(c_two == 1 && c_three == 5)
+				if (c_two == 1 && c_three == 5)
 					break;
-				else if(c_two == 1)
+				else if (c_two == 1)
 					_putchar('1');
 				_putchar(c_three + '0');
 			}
