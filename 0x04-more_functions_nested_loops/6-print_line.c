@@ -18,10 +18,10 @@ void print_line(int n)
 	}
 	else
 	{
-		for (i = 0; i <= n; i++)
+		for (i = 0; i < n; i++)
 		{
 			_putchar('_');
-			if (i == n)
+			if (i == n - 1)
 				_putchar('\n');
 		}
 	}
