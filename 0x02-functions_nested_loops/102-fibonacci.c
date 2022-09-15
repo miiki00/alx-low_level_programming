@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int i, j, k, l;
+	long int i, j, k, l;
 
 	i = 3;
 	j = 3;
@@ -16,15 +16,19 @@ int main(void)
 	{
 		if (i == 3)
 		{
-			printf("%d, %d, %d, ", (j - 2), (j - 1), j);
+			printf("%ld, %ld, %ld, ", (j - 2), (j - 1), j);
 		}
 		else
 		{
 			l = j + k;
+			if (j < 0)
+				j = j * -1;
+			if (k < j)
+				k = k * -1;
 			if (i == 50)
-				printf("%d", l);
+				printf("%ld", l);
 			else
-				printf("%d, ", l);
+				printf("%ld, ", l);
 			k = j;
 			j = l;
 		}
