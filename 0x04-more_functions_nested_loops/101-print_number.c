@@ -6,35 +6,54 @@
  */
 void print_number(int n)
 {
-	int f_1, s_2, t_3, f_4;
-
 	if (n < 0)
 	{
-		n = n * -1;
-		_putchar('-');
+		print_neg(n);
 	}
-	f_1 = n % 10;
-	f_4 = n / 1000;
-	if (n >= 1000)
+	else if (n >= 1000)
 	{
-		t_3 = (n % 1000 - n % 100) / 100;
-		s_2 = (n % 100 - n % 10) / 10;
+		_putchar((n / 1000) + '0');
+		_putchar(((n % 1000 - n % 100) / 100) + '0');
+		_putchar(((n % 100 - n % 10) / 10) + '0');
 	}
 	else if (n >= 100)
 	{
-		t_3 = n / 100;
-		s_2 = (n % 100 - n % 10) / 10;
+		_putchar((n / 100) + '0');
+		_putchar(((n % 100 - n % 10) / 10) + '0');
 	}
+	
 	else if (n >= 10)
 	{
-		s_2 = n / 10;
+		_putchar((n / 10) + '0');
 	}
-	if (n >= 1000)
-		_putchar(f_4 + '0');
-	if (n >= 100)
-		_putchar(t_3 + '0');
-	if (n >= 10)
-		_putchar(s_2 + '0');
-	_putchar(f_1 + '0');
-	_putchar('\n');
+	if (n >= 0)
+		_putchar((n % 10) + '0');
 }
+
+/**
+ * print_neg - print the negative number @n
+ * @n: The number to be printed.
+ *
+ * Return: Void.
+ */
+ void print_neg(int n)
+ {
+ 	_putchar('-');
+	if(n <= -1000)
+	{
+		_putchar(((n / 1000) * -1) + '0');
+		_putchar((((n % 1000 - n % 100) / 100) * -1) + '0');
+		_putchar((((n % 100 - n % 10) / 10) * -1) + '0');
+	}
+	else if (n <= -100)
+	{
+		_putchar(((n / 100) * -1) + '0');
+		_putchar((((n % 100 - n % 10) / 10) * -1) + '0');
+	}
+	else if (n <= -10)
+	{
+		_putchar(((n / 10) * -1) + '0');
+	}
+
+		_putchar(((n % 10) * -1)+ '0');
+ }
