@@ -16,10 +16,6 @@ char *_strncpy(char *dest, char *src, int n)
 
 	len = _strlen(src);
 
-	if (n < len)
-	{
-		
-	}
 	for (i = 0; i < n; i++)
 	{
 		*(dest + i) = *(src + i);
