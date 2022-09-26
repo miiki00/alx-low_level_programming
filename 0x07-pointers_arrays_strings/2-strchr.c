@@ -23,6 +23,10 @@ char *_strchr(char *s, char c)
 			break;
 		}
 	}
+	if (c == '\0')
+	{
+		return ('\0');
+	}
 
 	return (ret);
 }
