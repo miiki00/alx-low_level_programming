@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+int _putchar(char);
+int _strlen(char *);
 char *_memset(char *, char, unsigned int);
 char *_memcpy(char *, char *, unsigned int);
 char *_strchr(char *, char);
