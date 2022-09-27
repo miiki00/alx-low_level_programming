@@ -12,16 +12,20 @@ void print_diagsums(int *a, int size)
 {
 	int i, j, cp, diagsum_1, diagsum_2;
 
-	if (size % 2 == 0)
-		cp = (size / 2) + 1;
-	else
+	if (size % 2 != 0)
+	{
 		cp = (size / 2);
-	diagsum_1 = diagsum_2 = *(a + (size * cp + cp));
+		diagsum_1 = diagsum_2 = *(a + (size * cp + cp));
+	}
+	else
+	{
+		diagsum_1 = diagsum_2 = 0;
+	}
 	for (i = 0; i < size; i++)
 	{
 		for (j = 0; j < size; j++)
 		{
-			if (i == cp && j == cp)
+			if (i == cp && j == cp && size % 2 != 0)
 				break;
 			if (i == j)
 				diagsum_1 = diagsum_1 + *(a + (size * i + j));
