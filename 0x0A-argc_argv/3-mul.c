@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int ret;
+	int ret, i, j;
 
 	if  (argc != 3)
 	{
@@ -22,5 +22,5 @@ int main(int argc, char *argv[])
 		ret = atoi(argv[1]) * atoi(argv[2]);
 		printf("%d\n", ret);
 	}
-	return (ret);
+	return (0);
 }
