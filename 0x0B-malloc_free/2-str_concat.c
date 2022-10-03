@@ -20,7 +20,7 @@ int _len(char *s1, char *s2, int n)
 			len++;
 		while (n != 2 && *(s2 + i) != '\0')
 			i++;
-		len = len + i;
+		len = len + i + 1;
 	}
 	if (n == 3)
 		len = 1;
