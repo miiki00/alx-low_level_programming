@@ -116,7 +116,7 @@ char **strtow(char *str)
 		}
 	}
 	for (i = 0; str[i] != '\0'; i++)
-		if (str[i + 1] == '\0' && str[i] = ' ')
+		if (str[i + 1] == '\0' && str[i] == ' ')
 			k--;
 	for (i = 0; i < k; i++)
 	{
