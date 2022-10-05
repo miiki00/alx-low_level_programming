@@ -98,7 +98,7 @@ char **strtow(char *str)
 	int i, j, k, l, ind;
 	char **p;
 
-	if (*str == '\0' || str == NULL)
+	if ((str[1] == '\0' && str[0] == ' ')|| *str == ' ' || str == NULL)
 		return (NULL);
 	k = count_word(str);
 	p = malloc(sizeof(char *) * k);
@@ -106,7 +106,7 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; i < k; i++)
 	{
-		p[i] = malloc(sizeof(char) * count_word_index(i, str) + 1);
+		p[i] = malloc(sizeof(char) * count_word_index(i, str) + 2);
 		if (p[i] == NULL)
 		{
 			for (j = 0; j < i; j++)
