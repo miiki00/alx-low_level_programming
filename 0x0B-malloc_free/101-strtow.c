@@ -115,7 +115,10 @@ char **strtow(char *str)
 			return (NULL);
 		}
 	}
-	for (i = 0; i < k - 1; i++)
+	for (i = 0; str[i] != '\0'; i++)
+		if (str[i + 1] == '\0' && str[i] = ' ')
+			k--;
+	for (i = 0; i < k; i++)
 	{
 		l = count_word_index(i, str);
 		ind = give_index(i, str);
