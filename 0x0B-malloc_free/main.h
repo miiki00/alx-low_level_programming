@@ -11,6 +11,7 @@ int **alloc_grid(int, int);
 void free_grid(int **, int);
 char *argstostr(int, char **);
 char **strtow(char *str);
-
+int count_word_index(unsigned int, char *);
+int count_word(char *);
 
 #endif
