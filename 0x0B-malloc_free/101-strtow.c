@@ -11,22 +11,22 @@ int give_index(unsigned int index, char *str)
 {
 	unsigned int i, j, k;
 
-        j = k = 0;
-        if (str == NULL || index > (unsigned int)count_word(str))
-                return (0);
-        if (str[0] == ' ')
-        {
-                while (str[j] == ' ')
-                        j++;
-        }
-        for (i = j; str[i] != '\0'; i++)
-        {
-                if (k == index)
-			break;
-	        if (str[i] == ' ' && str[i + 1] != ' ')
-                        k++;
+	j = k = 0;
+	if (str == NULL || index > (unsigned int)count_word(str))
+		return (0);
+	if (str[0] == ' ')
+	{
+		while (str[j] == ' ')
+			j++;
 	}
-        return (i);
+	for (i = j; str[i] != '\0'; i++)
+	{
+		if (k == index)
+			break;
+		if (str[i] == ' ' && str[i + 1] != ' ')
+			k++;
+	}
+	return (i);
 }
 /**
  * count_word_index - coutn the length of the word on
@@ -56,7 +56,7 @@ int count_word_index(unsigned int index, char *str)
 			for (l = 0; str[i + l] != ' ' && str[i + l] != '\0';)
 				l++;
 			break;
-		}	
+		}
 		if (str[i] == ' ' && str[i + 1] != ' ')
 			k++;
 	}
@@ -78,7 +78,7 @@ int count_word(char *str)
 	for (i = 0, j = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] == ' ' && str[i + 1] != ' ')
-				j++;
+			j++;
 		if (str[i + 1] == '\0')
 			j++;
 	}
@@ -101,28 +101,29 @@ char **strtow(char *str)
 	if (*str == '\0' || str == NULL)
 		return (NULL);
 	k = count_word(str);
-	p = malloc(sizeof(char *) * k + 1);
+	p = malloc(sizeof(char *) * k);
 	if (p == NULL)
 		return (NULL);
-	p[k] = NULL;
 	for (i = 0; i < k; i++)
 	{
 		p[i] = malloc(sizeof(char) * count_word_index(i, str) + 1);
 		if (p[i] == NULL)
 		{
-			for(j = 0; j < i; j++)
+			for (j = 0; j < i; j++)
 				free(p[j]);
 			free(p);
 			return (NULL);
 		}
 	}
-	for (i = 0; i < k; i++)
+	for (i = 0; i < k - 1; i++)
 	{
 		l = count_word_index(i, str);
 		ind = give_index(i, str);
 		for (j = 0; j < l; j++, ind++)
 			p[i][j] = str[ind];
+		p[i][j] = '\0';
 	}
+	p[i] = NULL;
 	return (p);
 }
 
