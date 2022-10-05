@@ -73,7 +73,11 @@ int count_word(char *str)
 {
 	int i, j;
 
-	if (str == NULL || (*str == '\t' && str[1] == '\0'))
+	for (i = 0; str[i] == ' ' || str[i] == '\t'; i++)
+		if (str[i + 1] == '\0')
+			return (0);
+
+	if (str[1] == '\0')
 		return (0);
 	for (i = 0, j = 0; str[i] != '\0'; i++)
 	{
