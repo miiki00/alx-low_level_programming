@@ -23,11 +23,19 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	tmp3->n = n;
 	for (tmp = *head, i = 0; tmp != NULL; tmp = tmp->next, i++)
 	{
+		if (idx == 0)
+		{
+			*head = tmp3;
+			tmp3->next = tmp;
+			return (tmp3);
+		}
 		if (i == j)
 		{
 			tmp2 = tmp->next;
 			tmp->next = tmp3;
 			tmp3->next = tmp2;
+
+			return (tmp3);
 		}
 	}
 	return (NULL);
