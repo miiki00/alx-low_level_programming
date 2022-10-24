@@ -25,10 +25,10 @@ listint_t *add_nodeint(listint_t **, int);
 listint_t *add_nodeint_end(listint_t **, const int);
 void free_listint(listint_t *);
 void free_listint2(listint_t **);
-int pot_listint(listint_t **);
+int pop_listint(listint_t **);
 listint_t *get_nodeint_at_index(listint_t *, unsigned int index);
 int sum_listint(listint_t *head);
-listint_t *inser_nodeint_at_index(listint_t **, unsigned int, int n);
+listint_t *insert_nodeint_at_index(listint_t **, unsigned int, int n);
 int delete_nodeint_at_index(listint_t **, unsigned int);
 
 #endif
