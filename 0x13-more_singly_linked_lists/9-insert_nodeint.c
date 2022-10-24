@@ -34,9 +34,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			tmp2 = tmp->next;
 			tmp->next = tmp3;
 			tmp3->next = tmp2;
-
 			return (tmp3);
 		}
 	}
+	free(tmp3);
 	return (NULL);
 }
