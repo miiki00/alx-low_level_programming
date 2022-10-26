@@ -1,8 +1,10 @@
 #ifndef LISTS_H
 #define LISTS_H
+#define GET_NODE get_nodeint_at_index
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * struct listint_s - singly linked list
@@ -30,5 +32,6 @@ listint_t *get_nodeint_at_index(listint_t *, unsigned int index);
 int sum_listint(listint_t *head);
 listint_t *insert_nodeint_at_index(listint_t **, unsigned int, int n);
 int delete_nodeint_at_index(listint_t **, unsigned int);
+listint_t *reverse_listint(listint_t **);
 
 #endif
