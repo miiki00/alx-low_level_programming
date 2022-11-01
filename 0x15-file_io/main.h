@@ -5,9 +5,11 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 ssize_t read_textfile(const char *, size_t);
-int creat_file(const char *, char *);
+int create_file(const char *, char *);
 int append_text_to_file(const char *, char *);
 
 #endif
