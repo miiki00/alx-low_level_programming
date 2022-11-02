@@ -79,7 +79,7 @@ void _err_code(int code, const void *data)
 	switch (code)
 	{
 		case 97:
-			dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", (char *)data);
+			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 			exit(code);
 		case 98:
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", (char *)data);
@@ -88,7 +88,7 @@ void _err_code(int code, const void *data)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", (char *)data);
 			exit(code);
 		case 100:
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d", *((int *)data));
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *((int *)data));
 			exit(code);
 	}
 }
