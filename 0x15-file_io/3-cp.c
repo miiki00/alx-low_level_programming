@@ -108,10 +108,10 @@ int copy_from_to(const char *from, const char *to)
 
 	fd_from = open(from, O_RDONLY);
 	if (fd_from == -1)
-		_err_code(98, from);
+		_err_code(99, from);
 	ret = create_file(to, NULL);
 	if (ret == -1)
-		_err_code(99, to);
+		_err_code(98, to);
 	do {
 		buf = malloc(sizeof(char) * BUFF_SIZE);
 		if (buf == NULL)
