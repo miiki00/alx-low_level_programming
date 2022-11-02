@@ -6,7 +6,7 @@
  * @filename: The name of the file.
  * @text_content: The content you went to append.
  *
- * Return: 1 on success -1 on error.
+ * Return: The number of bytes appended, -1 on error.
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
@@ -29,7 +29,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		}
 	}
 	close(fd);
-	return (1);
+	return (ret);
 }
 
 /**
@@ -108,10 +108,10 @@ int copy_from_to(const char *from, const char *to)
 
 	fd_from = open(from, O_RDONLY);
 	if (fd_from == -1)
-		_err_code(99, from);
+		_err_code(98, from);
 	ret = create_file(to, NULL);
 	if (ret == -1)
-		_err_code(98, to);
+		_err_code(99, to);
 	do {
 		buf = malloc(sizeof(char) * BUFF_SIZE);
 		if (buf == NULL)
@@ -123,8 +123,9 @@ int copy_from_to(const char *from, const char *to)
 			free(buf);
 			_err_code(98, from);
 		}
+		printf("this byte readed %lu\n", readed);
 		ret = append_text_to_file(to, buf);
-		if (ret == -1)
+		if (ret != readed)
 		{
 			close(fd_from);
 			free(buf);
