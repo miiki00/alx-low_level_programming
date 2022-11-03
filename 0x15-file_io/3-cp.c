@@ -97,6 +97,6 @@ int main(int ac, char **av)
 		ret = write(fd_to, buf, readed);
 		if (ret != readed)
 			_err_code(2, 99, av[2], fd_from, fd_to, buf);
-	} while (readed > 0);
+	} while (readed == BUFF_SIZE);
 	return (0);
 }
