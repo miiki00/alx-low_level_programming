@@ -123,7 +123,6 @@ int copy_from_to(const char *from, const char *to)
 			free(buf);
 			_err_code(98, from);
 		}
-		printf("this byte readed %lu\n", readed);
 		ret = append_text_to_file(to, buf);
 		if (ret == -1)
 		{
