@@ -62,7 +62,9 @@ int create_file(const char *filename, char *text_content)
 			return (-1);
 		}
 	}
-	close(fd);
+	ret = close(fd);
+	if (ret == -1)
+		_err_code(100, &fd);
 	return (1);
 }
 
@@ -119,14 +121,18 @@ int copy_from_to(const char *from, const char *to)
 		readed = read(fd_from, buf, BUFF_SIZE);
 		if (readed == -1)
 		{
-			close(fd_from);
+			ret = close(fd_from);
+			if (ret == -1)
+				_err_code(100, &fd_from);
 			free(buf);
 			_err_code(98, from);
 		}
 		ret = append_text_to_file(to, buf);
 		if (ret == -1)
 		{
-			close(fd_from);
+			ret = close(fd_from);
+			if (ret == -1)
+				_err_code(100, &fd_from);
 			free(buf);
 			_err_code(99, to);
 		}
