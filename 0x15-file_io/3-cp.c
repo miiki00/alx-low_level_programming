@@ -29,7 +29,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		}
 	}
 	close(fd);
-	return (ret);
+	return (1);
 }
 
 /**
@@ -125,7 +125,7 @@ int copy_from_to(const char *from, const char *to)
 		}
 		printf("this byte readed %lu\n", readed);
 		ret = append_text_to_file(to, buf);
-		if (ret != readed)
+		if (ret == -1)
 		{
 			close(fd_from);
 			free(buf);
