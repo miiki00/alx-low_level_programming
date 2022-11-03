@@ -91,11 +91,12 @@ int main(int ac, char **av)
 			return (1);
 		}
 		readed = read(fd_from, buf, BUFF_SIZE);
+		printf("%lu : Readed\n", readed);
 		if (readed == -1)
 			_err_code(2, 98, av[1], fd_from, fd_to, buf);
 		ret = write(fd_to, buf, readed);
-		if (ret != readed)
+		if (ret == -1)
 			_err_code(2, 99, av[2], fd_from, fd_to, buf);
-	} while (readed == BUFF_SIZE);
+	} while (readed > 0);
 	return (0);
 }
