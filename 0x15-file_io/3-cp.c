@@ -95,7 +95,7 @@ int main(int ac, char **av)
 		if (readed == -1)
 			_err_code(2, 98, av[1], fd_from, fd_to, buf);
 		ret = write(fd_to, buf, readed);
-		if (ret == -1)
+		if (ret != readed)
 			_err_code(2, 99, av[2], fd_from, fd_to, buf);
 	} while (readed > 0);
 	return (0);
