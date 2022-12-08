@@ -1,14 +1,14 @@
 #include "lists.h"
 
 /**
- * init_dnodeint - initializes a node for a struct dlistint_s.
+ * init_local_dnodeint - initializes a node for a struct dlistint_s.
  * @n: The valuse to assign to the node element n.
  * @next: The value to assigne to the node element next.
  * @prev: The value to assigne to the node element prev.
  *
  * Return: The node address (success), NULL (faliure).
  */
-dlistint_t *init_dnodeint(int n, dlistint_t *next, dlistint_t *prev)
+dlistint_t *init_local_dnodeint(int n, dlistint_t *next, dlistint_t *prev)
 {
 	dlistint_t *new = NULL;
 
@@ -34,7 +34,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 
 	if (head == NULL)
 		return (NULL);
-	new = init_dnodeint(n, NULL, NULL);
+	new = init_local_dnodeint(n, NULL, NULL);
 	if (new == NULL)
 		return (NULL);
 	for (cnt = *head; ; cnt = cnt->next)
