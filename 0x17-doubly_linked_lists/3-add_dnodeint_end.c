@@ -1,30 +1,25 @@
 #include "lists.h"
 
 /**
- * add_dnodeint - adds a node at the beggining of a list type of dlistint_t
- * @head: The address of the head pointer.
- * @n: The value to assign to the new node element.
+ * init_dnodeint - initializes a node for a struct dlistint_s.
+ * @n: The valuse to assign to the node element n.
+ * @next: The value to assigne to the node element next.
+ * @prev: The value to assigne to the node element prev.
  *
- * Return: The address of the new element (success), NULL (error).
+ * Return: The node address (success), NULL (faliure).
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+dlistint_t *init_dnodeint(int n, dlistint_t *next, dlistint_t *prev)
 {
 	dlistint_t *new = NULL;
 
-	if (head == NULL)
-		return (NULL);
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
 		return (NULL);
 	new->n = n;
-	new->prev = NULL;
-	new->next = *head;
-	if (*head != NULL)
-		(*head)->prev = new;
-	*head = new;
+	new->prev = prev;
+	new->next = next;
 	return (new);
 }
-
 /**
  * add_dnodeint_end - adds a node at the end of a list type of dlistint_t.
  * @head: The address of the pointer that holdes the head of the list.
@@ -39,18 +34,16 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 
 	if (head == NULL)
 		return (NULL);
-	if (*head == NULL)
-	{
-		new = add_dnodeint(head, n);
-		return (new);
-	}
-	new = malloc(sizeof(dlistint_t));
+	new = init_dnodeint(n, NULL, NULL);
 	if (new == NULL)
 		return (NULL);
-	new->n = n;
-	new->next = NULL;
 	for (cnt = *head; ; cnt = cnt->next)
 	{
+		if (cnt == NULL)
+		{
+			*head = new;
+			return (new);
+		}
 		if (cnt->next == NULL)
 		{
 			cnt->next = new;
