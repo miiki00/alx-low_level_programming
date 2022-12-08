@@ -30,6 +30,7 @@ void free_dlistint(dlistint_t *head);
 dlistint_t *get_dnodeint_at_index(dlistint_t *, unsigned int index);
 int sum_dlistint(dlistint_t *head);
 dlistint_t *insert_dnodeint_at_index(dlistint_t **, unsigned int, int n);
+dlistint_t *init_dnodeint(int n, dlistint_t *, dlistint_t *);
 int delete_dnodeint_at_index(dlistint_t **, unsigned int);
 
 
