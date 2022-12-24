@@ -12,20 +12,20 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p;
-	char *c;
+	long int *ui;
 	int *n;
 	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	p = malloc((nmemb * size) + 1);
+	p = malloc(nmemb * size);
 	if (p == NULL)
 		return (p);
-	if (size == sizeof(*c))
+	if (size == sizeof(*ui))
 	{
-		c = (char *)p;
+		ui = (long int *)p;
 		for (i = 0; i < nmemb; i++)
-			*(c + i) = 0;
+			*(ui + i) = 0;
 	}
 	else if (size == sizeof(*n))
 	{
