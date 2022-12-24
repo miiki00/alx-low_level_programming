@@ -33,11 +33,11 @@ unsigned long int largest_prime_factor(unsigned long int n)
 	unsigned long int lpf = 0, i;
 
 	/* needs a condition to check numbers lower that 5 */
-	for (i = 5; i * i <= n; i = i + 6)
+	for (i = 5; (i * i) / 5000 <= n; i = i + 6)
 	{
-		if (n % i == 0 && check_prime(i))
+		if (n % i == 0)
 			lpf = i;
-		if (n % (i + 2) == 0 && check_prime(i))
+		if (n % (i + 2) == 0)
 			lpf = i;
 	}
 	if (lpf == 0)
