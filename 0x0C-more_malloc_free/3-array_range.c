@@ -11,12 +11,14 @@
  */
 int *array_range(int min, int max)
 {
-	int i, j;
-	int *p;
+	int i, j, add;
+	int *p = NULL;
 
 	if (min > max)
 		return (NULL);
-	p = malloc(sizeof(*p) * (max - min + 2));
+	if (min == max)
+		add = 1;
+	p = malloc(sizeof(int) * (max - min + add));
 	if (p == NULL)
 		return (NULL);
 	for (i = min, j = 0; i <= max; i++, j++)
